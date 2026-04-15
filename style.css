@@ -14,8 +14,7 @@ body {
 /* ── Navbar ── */
 .navbar {
   background: #2B72BE;
-  padding: 0 2rem;
-  height: 60px;
+  padding: 0.4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,9 +22,7 @@ body {
 
 .nav-logo img {
   display: block;
-  overflow: visible;
-  padding-top: 12px;
-  width: 160px;
+  width: 80px;
 }
 
 .nav-links {
