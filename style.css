@@ -23,6 +23,7 @@ body {
 
 .nav-logo img {
   display: block;
+  overflow: visible;
   padding-top: 12px;
 }
 
