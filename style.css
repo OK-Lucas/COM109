@@ -22,8 +22,8 @@ body {
 
 .nav-logo img {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -56,10 +56,11 @@ body {
   margin-bottom: 1rem;
 }
 
-.hero p {
-  font-size: 16px;
-  opacity: 0.85;
-  margin-bottom: 2rem;
+.hero {
+  background: #2B72BE;
+  color: white;
+  text-align: center;
+  padding: 2rem 2rem;  
 }
 
 .btn {
