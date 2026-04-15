@@ -1,4 +1,4 @@
-// Highlight the current page link in the navbar
+// Highlights page links
 const links = document.querySelectorAll('.nav-links a');
 
 links.forEach(function(link) {
