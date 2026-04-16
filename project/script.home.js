@@ -2,7 +2,8 @@
 const links = document.querySelectorAll('.nav-links a');
 links.forEach(function(link) {
   if (link.href === window.location.href) {
-    link.classList.add('active');
+    link.style.color = 'white';
+    link.style.fontWeight = 'bold';
   }
 });
 
@@ -14,7 +15,7 @@ function updateClock() {
   const h = String(now.getHours()).padStart(2, '0');
   const m = String(now.getMinutes()).padStart(2, '0');
   const s = String(now.getSeconds()).padStart(2, '0');
-  clock.textContent = `${h}:${m}:${s}`;
+  clock.textContent = h + ':' + m + ':' + s;
 }
 updateClock();
 setInterval(updateClock, 1000);
@@ -65,7 +66,7 @@ setInterval(updateClock, 1000);
   prevBtn.addEventListener('click', function () { prev(); resetAuto(); });
   nextBtn.addEventListener('click', function () { next(); resetAuto(); });
 
-  // Keyboard support
+  // Keyboard arrow key support
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowLeft') { prev(); resetAuto(); }
     if (e.key === 'ArrowRight') { next(); resetAuto(); }
