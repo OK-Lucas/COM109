@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pulse Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,13 +20,37 @@
       <li><a href="#">Membership</a></li>
       <li><a href="#">About</a></li>
     </ul>
+    <div class="digital-clock" id="clock">00:00:00</div>
   </nav>
 
   <section class="hero">
     <h1>Train your body. Clear your mind.</h1>
     <p>Welcome to a place where strength goes beyond the physical. Our gym is dedicated to helping you build a healthier body and a clearer, more resilient mind through expert guidance, energizing workouts, and a supportive community. Whether you're just starting your fitness journey or pushing toward new goals, you'll find a friendly, welcoming environment where everyone is encouraged, respected, and inspired to be their best.</p>
     <a href="#" class="btn">Sign up now</a>
-    <p>Join hundreds of members already transforming their lives at Pulse Studio.</p>
+    <p class="hero-sub">Join hundreds of members already transforming their lives at Pulse Studio.</p>
+  </section>
+
+  <!-- Slideshow Section -->
+  <section class="slideshow-section">
+    <div class="slideshow-wrapper">
+      <div class="slideshow-track" id="slideshowTrack">
+        <!--
+          Add your images here. Example:
+          <div class="slide"><img src="gym1.jpg" alt="Photo 1"></div>
+          <div class="slide"><img src="gym2.jpg" alt="Photo 2"></div>
+
+          Placeholder slides are shown until you add real images.
+        -->
+        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
+        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
+        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
+      </div>
+
+      <button class="slide-btn slide-btn--prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
+      <button class="slide-btn slide-btn--next" id="nextBtn" aria-label="Next photo">&#8594;</button>
+
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
   </section>
 
   <section class="cards-section">
