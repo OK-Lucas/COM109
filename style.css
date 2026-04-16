@@ -18,13 +18,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-logo {
+  overflow: visible;
 }
 
 .nav-logo img {
   display: block;
-  width: 70px;
-  height: 70px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
+  position: relative;
+  z-index: 11;
 }
 
 .nav-links {
