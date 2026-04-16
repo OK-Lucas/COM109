@@ -30,11 +30,12 @@ body {
 
 .nav-logo img {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
   position: relative;
   z-index: 11;
+  top: 20px;
 }
 
 .nav-links {
