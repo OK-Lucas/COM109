@@ -35,7 +35,7 @@ body {
   object-fit: cover;
   position: relative;
   z-index: 11;
-  top: 20px;
+  top: 60px;
 }
 
 .nav-links {
