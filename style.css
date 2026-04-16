@@ -144,6 +144,125 @@ body {
 
 
 
+/* ── Team member cards ── */
+.card-avatar {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px 6px 0 0;
+}
+
+.card.team-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.team-card .card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card.team-card h3 {
+  font-size: 16px;
+  margin-bottom: 3px;
+  color: #2B72BE;
+}
+
+.card-role {
+  font-size: 12px;
+  font-weight: bold;
+  color: #2B72BE;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.card-bio {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.card-socials {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #888;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.social-link:hover {
+  border-color: #2B72BE;
+  color: #2B72BE;
+}
+
+.social-link svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-btn {
+  display: block;
+  width: 100%;
+  padding: 9px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: inherit;
+  text-align: center;
+  background: transparent;
+  color: #222;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.contact-btn:hover {
+  background: #e8f1fb;
+  border-color: #2B72BE;
+  color: #2B72BE;
+}
+
+/* Avatar colour variants */
+.av-blue   { background: #e8f1fb; color: #1a4f8a; }
+.av-mid    { background: #d6e8f8; color: #1a4f8a; }
+.av-light  { background: #f0f6fd; color: #2B72BE; }
+
 /* ── Footer ── */
 .footer {
   background: #1a1a2e;
