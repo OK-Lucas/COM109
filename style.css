@@ -359,3 +359,102 @@ body {
   }
 
 }
+
+/* ===== ACCESSIBILITY MENU ===== */
+#access-menu-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+#access-toggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2B72BE;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+#access-toggle:hover { background: #1f5a9e; }
+
+#access-panel {
+  display: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 180px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  flex-direction: column;
+  gap: 6px;
+}
+
+.access-panel-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin: 0 0 6px 4px;
+}
+
+.access-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+  color: #333;
+}
+.access-option:hover { background: #f0f5ff; border-color: #2B72BE; }
+.access-option.active { background: #2B72BE; color: #fff; }
+.access-option.active .acc-icon { color: #fff; }
+
+.acc-icon {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2B72BE;
+  width: 20px;
+  text-align: center;
+}
+
+body.acc-large-text p,
+body.acc-large-text h1,
+body.acc-large-text h2,
+body.acc-large-text h3,
+body.acc-large-text a,
+body.acc-large-text li,
+body.acc-large-text .card-bio,
+body.acc-large-text .card-role,
+body.acc-large-text .contact-btn,
+body.acc-large-text .main-info p {
+  font-size: larger !important;
+}
+body.acc-high-contrast {
+  filter: contrast(1.5) brightness(0.95);
+  background: #000 !important;
+  color: #fff !important;
+}
+body.acc-dyslexia * { font-family: 'Comic Sans MS', 'OpenDyslexic', cursive !important; }
+body.acc-reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+/* ===== END ACCESSIBILITY MENU ===== */
