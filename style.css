@@ -8,7 +8,10 @@
 body {
   font-family: Arial, sans-serif;
   color: #222;
-  background: #fff;
+  background-color: #fff;
+  background-image: url('images/background.png');
+  background-repeat: repeat;
+  background-size: 400px;
 }
 
 /* ── Navbar ── */
