@@ -318,44 +318,100 @@ body {
 /* ── Mobile responsive ── */
 @media (max-width: 768px) {
 
+  /* Navbar */
   .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem 2rem;
-    align-items: flex-start;
+    flex-direction: row;
+    height: 64px;
+    padding: 0 1.25rem;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .nav-logo img {
-    width: 80px;
-    height: 80px;
+    width: 56px;
+    height: 56px;
     top: 0;
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 0.75rem;
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+    justify-content: flex-end;
+    margin-top: 0;
   }
 
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  /* Hero */
   .hero {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero h1 {
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 0.5rem;
   }
 
+  .hero p {
+    font-size: 13px;
+  }
+
+  /* Cards */
   .cards-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
+  /* Fix team card height on mobile */
+  .card.team-card {
+    height: auto;
+    min-height: 600px;
+  }
+
+  .flip-card-inner {
+    min-height: 600px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    min-height: 600px;
+    position: relative;
+  }
+
+  /* Main section */
   .main-section {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .main-section > h2 {
+    font-size: 20px;
   }
 
   .main-info {
     padding: 1.25rem;
+  }
+
+  .main-info h2 {
+    font-size: 18px;
+  }
+
+  /* Accessibility menu */
+  #access-menu-wrapper {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Email popup — full width on mobile */
+  #email-popup {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    transform: none;
+    white-space: normal;
+    font-size: 13px;
   }
 
 }
