@@ -80,3 +80,21 @@ $(document).ready(function () {
 
 });
 // ===== END ACCESSIBILITY MENU =====
+
+// ===== FLIP CARD FEATURE =====
+$(document).ready(function () {
+
+  // Flip to back
+  $('.btn-flip').on('click', function (e) {
+    e.stopPropagation();
+    $(this).closest('.team-card').addClass('is-flipped');
+  });
+
+  // Flip back to front
+  $('.btn-flip-back').on('click', function (e) {
+    e.stopPropagation();
+    $(this).closest('.team-card').removeClass('is-flipped');
+  });
+
+});
+// ===== END FLIP CARD FEATURE =====
