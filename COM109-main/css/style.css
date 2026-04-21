@@ -15,7 +15,7 @@ body {
   font-family: Arial, sans-serif;
   color: #222;
   background-color: #fff;
-  background-image: url('images/GLOBAL_background.png');
+  background-image: url('../images/GLOBAL_background.png');
   background-repeat: repeat;
   background-size: 400px;
 }
