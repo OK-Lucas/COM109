@@ -1,2 +1,2 @@
 # COM109
-Group 9 coursework 2
+Group 12 coursework 2
