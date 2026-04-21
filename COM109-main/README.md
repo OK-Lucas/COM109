@@ -1,2 +1,12 @@
-# COM109
-Group 12 coursework 2
+# COM109 Coursework
+
+## Project Structure
+- index.html – homepage
+- css/ – styling files
+- js/ – JavaScript functionality
+- images/ – assets
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
