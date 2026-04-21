@@ -6,100 +6,7 @@
   <title>Classes</title>
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Day Navigator */
-    .day-navigator {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin: 2rem 0 1.5rem;
-      padding: 1rem 1.25rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-    }
-
-    .day-nav-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      color: inherit;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      flex-shrink: 0;
-    }
-
-    .day-nav-btn:hover {
-      background: rgba(255,255,255,0.22);
-      transform: scale(1.08);
-    }
-
-    .day-nav-btn:active {
-      transform: scale(0.96);
-    }
-
-    .day-nav-btn:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .day-nav-label {
-      text-align: center;
-      flex: 1;
-    }
-
-    .day-nav-label .day-name {
-      display: block;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .day-nav-label .day-badge {
-      display: inline-block;
-      margin-top: 0.25rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.2em 0.65em;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      opacity: 0.75;
-    }
-
-    /* Day schedule card */
-    .day-schedule {
-      animation: fadeSlide 0.25s ease;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .day-schedule { animation: none; }
-    }
-
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .day-schedule ul {
-      margin: 0.5rem 0 1rem 1.2rem;
-    }
-
-    .day-schedule .rest-day {
-      font-style: italic;
-      opacity: 0.65;
-      margin: 0.5rem 0 1rem;
-    }
-  </style>
+  
 </head>
 <body>
 
@@ -108,7 +15,7 @@
       <img src="images/logo.png" alt="Pulse Studio logo">
     </div>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="Home.html">Home</a></li>
       <li><a href="Staff.html">Meet the Team!</a></li>
       <li><a href="Classes.html">Classes</a></li>
       <li><a href="index.html">Sign up!</a></li>

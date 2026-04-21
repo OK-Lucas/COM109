@@ -217,3 +217,35 @@ $(function () {
 });
 
 // Classes Timetable end
+
+// ===== SLIDESHOW =====
+$(document).ready(function () {
+  var current = 0;
+  var $track = $('#slideshowTrack');
+  var $dots = $('#slideDots');
+  var total = $track.children('.slide').length;
+ 
+  if (total === 0) return;
+ 
+  // Build dots
+  for (var i = 0; i < total; i++) {
+    $dots.append('<button class="slide-dot' + (i === 0 ? ' active' : '') + '" aria-label="Go to slide ' + (i + 1) + '"></button>');
+  }
+ 
+  function goTo(index) {
+    current = (index + total) % total;
+    $track.css('transform', 'translateX(-' + (current * 100) + '%)');
+    $dots.find('.slide-dot').removeClass('active').eq(current).addClass('active');
+  }
+ 
+  $('#nextBtn').on('click', function () { goTo(current + 1); });
+  $('#prevBtn').on('click', function () { goTo(current - 1); });
+ 
+  $dots.on('click', '.slide-dot', function () {
+    goTo($(this).index());
+  });
+ 
+  // Auto-advance every 4 seconds
+  setInterval(function () { goTo(current + 1); }, 4000);
+});
+// ===== END SLIDESHOW =====
