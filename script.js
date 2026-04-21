@@ -98,3 +98,122 @@ $(document).ready(function () {
 
 });
 // ===== END FLIP CARD FEATURE =====
+
+
+// Classes Timetable start
+
+var TIMETABLE = [
+  {
+    day: "Monday",
+    classes: [
+      { time: "09:20 – 09:40", name: "Push Ups" },
+      { time: "09:40 – 10:00", name: "Med Ball Slam" },
+      { time: "10:00 – 10:20", name: "Kneeling DB Press" }
+    ]
+  },
+  {
+    day: "Tuesday",
+    classes: [
+      { time: "09:00 – 09:25", name: "CMJ" },
+      { time: "09:25 – 09:50", name: "Band Assisted Pogos" },
+      { time: "09:45 – 10:05", name: "Barbell Bench Press" }
+    ]
+  },
+  {
+    day: "Wednesday",
+    classes: [
+      { time: "09:00 – 09:30", name: "Copenhagen" },
+      { time: "09:30 – 10:00", name: "Wall Sit" },
+      { time: "10:00 – 10:15", name: "Paloff Press" },
+      { time: "10:15 – 10:30", name: "Plank" }
+    ]
+  },
+  {
+    day: "Thursday",
+    classes: [
+      { time: "09:00 – 09:20", name: "Hanging Leg Raise" },
+      { time: "09:20 – 09:40", name: "Hexbar Deadlift" },
+      { time: "09:40 – 10:00", name: "Hang Clean" }
+    ]
+  },
+  {
+    day: "Friday",
+    classes: [
+      { time: "09:00 – 09:30", name: "Bikes" },
+      { time: "09:30 – 10:00", name: "Broad Jumps" },
+      { time: "10:00 – 10:30", name: "Lateral Rebound from Plate" }
+    ]
+  },
+  {
+    day: "Saturday",
+    classes: [
+      { time: "09:00 – 09:40", name: "Hamstring Curls" },
+      { time: "09:40 – 10:10", name: "Rockback Jumps" }
+    ]
+  },
+  {
+    day: "Sunday",
+    classes: [] // empty = rest day
+  }
+];
+
+function getTodayIndex() {
+  var d = new Date().getDay(); // 0=Sun, 1=Mon ... 6=Sat
+  return (d + 6) % 7;         // shift to 0=Mon ... 6=Sun
+}
+
+function buildScheduleHTML(entry) {
+  if (!entry.classes || entry.classes.length === 0) {
+    return '<p class="rest-day">🛌 Rest day – recover and recharge!</p>';
+  }
+  var items = entry.classes.map(function (c) {
+    return "<li><strong>" + c.time + "</strong>: " + c.name + "</li>";
+  });
+  return "<ul>" + items.join("") + "</ul>";
+}
+
+function renderDay(index) {
+  var entry = TIMETABLE[index];
+  var today = getTodayIndex();
+  var isToday    = index === today;
+  var isTomorrow = index === (today + 1) % 7;
+
+  $("#currentDayName").text(entry.day);
+  $("#currentDayBadge").text(isToday ? "Today" : isTomorrow ? "Tomorrow" : "");
+
+  if (!isToday && !isTomorrow) {
+    $("#currentDayBadge").hide();
+  } else {
+    $("#currentDayBadge").show();
+  }
+
+  $("#prevDayBtn").prop("disabled", index === 0);
+  $("#nextDayBtn").prop("disabled", index === TIMETABLE.length - 1);
+
+  var $display = $("#dayScheduleDisplay");
+  $display.removeClass("day-schedule");
+  void $display[0].offsetWidth; // force reflow so animation re-triggers
+  $display.addClass("day-schedule").html(buildScheduleHTML(entry));
+}
+
+$(function () {
+  var currentIndex = getTodayIndex();
+
+  renderDay(currentIndex);
+
+  $("#prevDayBtn").on("click", function () {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderDay(currentIndex);
+    }
+  });
+
+  $("#nextDayBtn").on("click", function () {
+    if (currentIndex < TIMETABLE.length - 1) {
+      currentIndex++;
+      renderDay(currentIndex);
+    }
+  });
+});
+
+// Classes Timetable end
