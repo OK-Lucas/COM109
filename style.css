@@ -799,3 +799,61 @@ body.acc-reduce-motion * {
       margin: 0.5rem 0 1rem;
     }
     /* ===== END Classes style ===== */
+/* ===== OFFER CARDS (hover image reveal) ===== */
+.offer-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 280px;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.offer-card:hover img {
+  transform: scale(1.05);
+}
+
+.offer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 114, 190, 0.82);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.offer-card:hover .offer-overlay {
+  opacity: 1;
+}
+
+.offer-overlay h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.offer-overlay p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+}
+
+@media (max-width: 768px) {
+  .offer-card {
+    height: 220px;
+  }
+}
+/* ===== END OFFER CARDS ===== */

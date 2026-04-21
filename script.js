@@ -218,34 +218,59 @@ $(function () {
 
 // Classes Timetable end
 
-// ===== SLIDESHOW =====
-$(document).ready(function () {
-  var current = 0;
-  var $track = $('#slideshowTrack');
-  var $dots = $('#slideDots');
-  var total = $track.children('.slide').length;
- 
-  if (total === 0) return;
- 
-  // Build dots
-  for (var i = 0; i < total; i++) {
-    $dots.append('<button class="slide-dot' + (i === 0 ? ' active' : '') + '" aria-label="Go to slide ' + (i + 1) + '"></button>');
+// ===== ACTIVE NAV LINK =====
+var links = document.querySelectorAll('.nav-links a');
+links.forEach(function (link) {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
   }
- 
+});
+// ===== END ACTIVE NAV LINK =====
+
+// ===== SLIDESHOW =====
+(function () {
+  var track = document.getElementById('slideshowTrack');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var dotsContainer = document.getElementById('slideDots');
+  if (!track) return;
+  var slides = track.querySelectorAll('.slide');
+  var total = slides.length;
+  var current = 0;
+  var autoTimer = null;
+
+  // Build dot indicators
+  slides.forEach(function (_, i) {
+    var dot = document.createElement('button');
+    dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', function () { goTo(i); resetAuto(); });
+    dotsContainer.appendChild(dot);
+  });
+
   function goTo(index) {
     current = (index + total) % total;
-    $track.css('transform', 'translateX(-' + (current * 100) + '%)');
-    $dots.find('.slide-dot').removeClass('active').eq(current).addClass('active');
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsContainer.querySelectorAll('.slide-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
   }
- 
-  $('#nextBtn').on('click', function () { goTo(current + 1); });
-  $('#prevBtn').on('click', function () { goTo(current - 1); });
- 
-  $dots.on('click', '.slide-dot', function () {
-    goTo($(this).index());
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() { autoTimer = setInterval(next, 5000); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  prevBtn.addEventListener('click', function () { prev(); resetAuto(); });
+  nextBtn.addEventListener('click', function () { next(); resetAuto(); });
+
+  // Keyboard support
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { prev(); resetAuto(); }
+    if (e.key === 'ArrowRight') { next(); resetAuto(); }
   });
- 
-  // Auto-advance every 4 seconds
-  setInterval(function () { goTo(current + 1); }, 4000);
-});
+
+  startAuto();
+})();
 // ===== END SLIDESHOW =====
