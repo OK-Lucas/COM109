@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes</title>
+  <link rel="icon" href="images/GLOBAL_logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="classes.css">
+  
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="images/GLOBAL_logo.png" alt="Pulse Studio logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Staff.html">Meet the Team!</a></li>
+      <li><a href="Classes.html">Classes</a></li>
+      <li><a href="index.html">Sign up!</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Classes</h1>
+    <p>Discover our variety of fitness classes designed to challenge and inspire you.</p>
+  </section>
+
+  <section class="main-section">
+    <div class="main-info">
+      <h2>Weekly Gym Timetable</h2>
+
+      <!-- Day navigator -->
+      <div class="day-navigator" role="region" aria-label="Day timetable navigator">
+        <button class="day-nav-btn" id="prevDayBtn" aria-label="Previous day">&#8592;</button>
+        <div class="day-nav-label">
+          <span class="day-name" id="currentDayName"></span>
+          <span class="day-badge" id="currentDayBadge"></span>
+        </div>
+        <button class="day-nav-btn" id="nextDayBtn" aria-label="Next day">&#8594;</button>
+      </div>
+
+      <!-- Schedule display -->
+      <div id="dayScheduleDisplay" class="day-schedule" aria-live="polite"></div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Pulse Studio · All rights reserved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script src="timetable.js"></script>
+
+<!-- Accessibility Menu -->
+<div id="access-menu-wrapper">
+  <button id="access-toggle" aria-label="Open accessibility options" aria-expanded="false" aria-controls="access-panel">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"/><path d="M12 22V12M12 12l-4 4M12 12l4 4M6 8l6 2 6-2"/></svg>
+  </button>
+  <div id="access-panel" aria-hidden="true" role="region" aria-label="Accessibility options">
+    <p class="access-panel-title">Accessibility</p>
+    <button class="access-option" id="acc-font-size" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">A+</span> Text Size
+    </button>
+    <button class="access-option" id="acc-contrast" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">◑</span> High Contrast
+    </button>
+    <button class="access-option" id="acc-dyslexia" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">Aa</span> Dyslexia Font
+    </button>
+    <button class="access-option" id="acc-motion" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">⏸</span> Reduce Motion
+    </button>
+    <button class="access-option" id="acc-reset">
+      <span class="acc-icon" aria-hidden="true">↺</span> Reset All
+    </button>
+  </div>
+</div>
+</body>
+</html>
