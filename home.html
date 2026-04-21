@@ -4,46 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pulse Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-home.css">
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-logo">
+  <!-- ── Top bar: logo centred, nav right, sign up button right ── -->
+  <div class="topbar">
+    <div class="topbar-left"></div>
+    <div class="topbar-logo">
       <img src="logo.png" alt="Pulse Studio logo">
     </div>
-    <ul class="nav-links">
-      <li><a href="#">Classes</a></li>
-      <li><a href="#">Membership</a></li>
-      <li><a href="#">About</a></li>
-    </ul>
-    <div class="digital-clock" id="clock">00:00:00</div>
-  </nav>
+    <nav class="topbar-nav">
+      <ul class="nav-links">
+        <li><a href="#">Classes</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" class="btn-nav">Sign up now</a></li>
+      </ul>
+    </nav>
+  </div>
 
+  <!-- ── Hero with background image ── -->
   <section class="hero">
-    <h1>Train your body. Clear your mind.</h1>
-    <p>Welcome to a place where strength goes beyond the physical. Our gym is dedicated to helping you build a healthier body and a clearer, more resilient mind through expert guidance, energizing workouts, and a supportive community. Whether you're just starting your fitness journey or pushing toward new goals, you'll find a friendly, welcoming environment where everyone is encouraged, respected, and inspired to be their best.</p>
-    <a href="#" class="btn">Sign up now</a>
-    <p class="hero-sub">Join hundreds of members already transforming their lives at Pulse Studio.</p>
+    <div class="hero-overlay">
+      <h1>Train your body. Clear your mind.</h1>
+      <p>Welcome to a place where strength goes beyond the physical. Our gym is dedicated to helping you build a healthier body and a clearer, more resilient mind through expert guidance, energizing workouts, and a supportive community. Whether you're just starting your fitness journey or pushing toward new goals, you'll find a friendly, welcoming environment where everyone is encouraged, respected, and inspired to be their best.</p>
+      <p class="hero-sub">Join hundreds of members already transforming their lives at Pulse Studio.</p>
+    </div>
   </section>
 
-  <!-- Slideshow Section -->
+  <!-- ── Divider ── -->
+  <div class="section-divider"></div>
+
+  <!-- ── Full-width Slideshow ── -->
   <section class="slideshow-section">
     <div class="slideshow-wrapper">
       <div class="slideshow-track" id="slideshowTrack">
-        <!--
-          Add your images here. Example:
-          <div class="slide"><img src="gym1.jpg" alt="Photo 1"></div>
-          <div class="slide"><img src="gym2.jpg" alt="Photo 2"></div>
-
-          Placeholder slides are shown until you add real images.
-        -->
-        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
-        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
-        <div class="slide slide-placeholder"><span>Add your photo here</span></div>
+        <div class="slide"><img src="gym1.jpg" alt="Photo 1"></div>
+        <div class="slide"><img src="gym2.jpg" alt="Photo 2"></div>
+        <div class="slide"><img src="gym3.jpg" alt="Photo 3"></div>
       </div>
 
       <button class="slide-btn slide-btn--prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
@@ -53,38 +52,56 @@
     </div>
   </section>
 
+  <!-- ── What we offer ── -->
   <section class="cards-section">
     <h2>What we offer</h2>
     <div class="cards-grid">
 
       <div class="card">
-        <h3>Personal training</h3>
-        <p>One-on-one sessions tailored to your goals, schedule, and fitness level.</p>
+        <img src="personal-training.jpg" alt="Personal training">
+        <div class="card-overlay">
+          <h3>Personal training</h3>
+          <p>One-on-one sessions tailored to your goals, schedule, and fitness level.</p>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Group classes</h3>
-        <p>High-energy sessions from HIIT to yoga, led by certified instructors.</p>
+        <img src="group-classes.jpg" alt="Group classes">
+        <div class="card-overlay">
+          <h3>Group classes</h3>
+          <p>High-energy sessions from HIIT to yoga, led by certified instructors.</p>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Nutrition coaching</h3>
-        <p>Expert guidance to complement your workouts with the right fuel.</p>
+        <img src="nutrition1.jpg" alt="Nutrition coaching">
+        <div class="card-overlay">
+          <h3>Nutrition coaching</h3>
+          <p>Expert guidance to complement your workouts with the right fuel.</p>
+        </div>
       </div>
 
     </div>
   </section>
 
+  <!-- ── About with logo ── -->
   <section class="info-section">
-    <h2>About Pulse Studio</h2>
-    <p>Pulse Studio has been part of this community since 2018. Our certified coaches bring years of experience across strength training, cardio, mobility, and mental wellness. We believe fitness should be accessible, inclusive, and above all — enjoyable.</p>
+    <div class="info-inner">
+      <div class="info-logo">
+        <img src="logo.png" alt="Pulse Studio logo">
+      </div>
+      <div class="info-text">
+        <h2>About Pulse Studio</h2>
+        <p>Pulse Studio has been part of this community since 2018. Our certified coaches bring years of experience across strength training, cardio, mobility, and mental wellness. We believe fitness should be accessible, inclusive, and above all — enjoyable.</p>
+      </div>
+    </div>
   </section>
 
   <footer class="footer">
     <p>&copy; 2025 Pulse Studio. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script-home.js"></script>
 
 </body>
 </html>
