@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="icon" href="images/GLOBAL_logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="images/GLOBAL_logo.png" alt="Pulse Studio logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="staff.html">Meet the Team!</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="index.html">Sign up!</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Train your body. Clear your mind.</h1>
+    <p>Welcome to Pulse Studio — where strength goes beyond the physical. Expert guidance, energizing workouts, and a supportive community await you.</p>
+  </section>
+
+  <!-- What we offer -->
+  <section class="main-section">
+    <h2>What we offer</h2>
+    <div class="cards-grid">
+
+      <div class="offer-card">
+        <img src="images/HOME_offer1.jpg" alt="Personal Training">
+        <div class="offer-overlay">
+          <h3>Personal Training</h3>
+          <p>One-on-one sessions tailored to your goals, schedule, and fitness level with our certified coaches.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="images/HOME_offer2.jpg" alt="Group Classes">
+        <div class="offer-overlay">
+          <h3>Group Classes</h3>
+          <p>High-energy sessions from HIIT to yoga, led by certified instructors in a welcoming environment.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="images/HOME_offer3.jpg" alt="Nutrition Coaching">
+        <div class="offer-overlay">
+          <h3>Nutrition Coaching</h3>
+          <p>Expert guidance to complement your workouts with the right fuel for maximum results.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-wrapper">
+      <div class="slideshow-track" id="slideshowTrack">
+        <div class="slide"><img src="images/HOME_slide1.jpg" alt="Gym photo 1"></div>
+        <div class="slide"><img src="images/HOME_slide2.jpg" alt="Gym photo 2"></div>
+        <div class="slide"><img src="images/HOME_slide3.jpg" alt="Gym photo 3"></div>
+      </div>
+      <button class="slide-btn slide-btn--prev" id="prevBtn" aria-label="Previous photo">&#8592;</button>
+      <button class="slide-btn slide-btn--next" id="nextBtn" aria-label="Next photo">&#8594;</button>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+
+    <!-- About -->
+    <div class="main-info">
+      <h2>About Pulse Studio</h2>
+      <p>Pulse Studio has been part of this community since 2018. Our certified coaches bring years of experience across strength training, cardio, mobility, and mental wellness. We believe fitness should be accessible, inclusive, and above all — enjoyable. Join hundreds of members already transforming their lives.</p>
+    </div>
+
+  </section>
+
+  <!-- Book a Free Taster Session -->
+  <section class="main-section taster-section">
+    <h2>Book a Free Taster Session</h2>
+    <p class="taster-intro">Ready to take the first step? Fill in the form below and one of our coaches will be in touch to confirm your free session.</p>
+
+    <form id="tasterForm" novalidate>
+
+      <div class="form-group" id="fg-name">
+        <label for="tasterName">Full Name</label>
+        <input type="text" id="tasterName" name="tasterName" autocomplete="name" placeholder="e.g. Jane Smith">
+        <span class="field-error" id="err-name" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group" id="fg-email">
+        <label for="tasterEmail">Email Address</label>
+        <input type="email" id="tasterEmail" name="tasterEmail" autocomplete="email" placeholder="e.g. jane@example.com">
+        <span class="field-error" id="err-email" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group" id="fg-class">
+        <label for="tasterClass">Preferred Class</label>
+        <select id="tasterClass" name="tasterClass">
+          <option value="">-- Select a class --</option>
+          <option value="HIIT">HIIT</option>
+          <option value="Yoga">Yoga</option>
+          <option value="Strength Training">Strength Training</option>
+          <option value="Cardio">Cardio</option>
+          <option value="Pilates">Pilates</option>
+          <option value="Personal Training">Personal Training</option>
+          <option value="Nutrition Coaching">Nutrition Coaching</option>
+        </select>
+        <span class="field-error" id="err-class" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group" id="fg-message">
+        <label for="tasterMessage">Fitness Goal / Message</label>
+        <textarea id="tasterMessage" name="tasterMessage" rows="4" placeholder="Tell us a bit about your goals or what you're looking to achieve..."></textarea>
+        <span class="field-error" id="err-message" aria-live="polite"></span>
+      </div>
+
+      <button type="submit" class="taster-submit-btn">Book My Free Session</button>
+
+    </form>
+
+    <!-- Confirmation panel – hidden until successful submission -->
+    <div id="tasterConfirmation" style="display:none;" aria-live="polite">
+      <div class="confirm-header">
+        <span class="confirm-tick">&#10003;</span>
+        <h3>You're booked in!</h3>
+      </div>
+      <p class="confirm-sub">Thanks for getting in touch. Here's a summary of your enquiry — we'll be in contact soon.</p>
+      <ul class="confirm-list" id="confirmList"></ul>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Pulse Studio · All rights reserved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+
+<!-- Accessibility Menu -->
+<div id="access-menu-wrapper">
+  <button id="access-toggle" aria-label="Open accessibility options" aria-expanded="false" aria-controls="access-panel">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"/><path d="M12 22V12M12 12l-4 4M12 12l4 4M6 8l6 2 6-2"/></svg>
+  </button>
+  <div id="access-panel" aria-hidden="true" role="region" aria-label="Accessibility options">
+    <p class="access-panel-title">Accessibility</p>
+    <button class="access-option" id="acc-font-size" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">A+</span> Text Size
+    </button>
+    <button class="access-option" id="acc-contrast" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">◑</span> High Contrast
+    </button>
+    <button class="access-option" id="acc-dyslexia" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">Aa</span> Dyslexia Font
+    </button>
+    <button class="access-option" id="acc-motion" aria-pressed="false">
+      <span class="acc-icon" aria-hidden="true">⏸</span> Reduce Motion
+    </button>
+    <button class="access-option" id="acc-reset">
+      <span class="acc-icon" aria-hidden="true">↺</span> Reset All
+    </button>
+  </div>
+</div>
+</body>
+</html>

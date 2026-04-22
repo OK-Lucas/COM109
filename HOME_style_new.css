@@ -1,0 +1,388 @@
+/* ══════════════════════════════════════════
+   home.css  —  Home page only
+   Pulse Studio · Home.html
+   Depends on: style.css
+   ══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   OFFER CARDS  (hover image reveal)
+   ══════════════════════════════════════════ */
+.offer-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 280px;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.offer-card:hover img {
+  transform: scale(1.05);
+}
+
+.offer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 114, 190, 0.82);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.offer-card:hover .offer-overlay {
+  opacity: 1;
+}
+
+.offer-overlay h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+  transform: translateY(8px);
+  transition: transform 0.35s ease 0.05s;
+}
+
+.offer-card:hover .offer-overlay h3 {
+  transform: translateY(0);
+}
+
+.offer-overlay p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  transform: translateY(8px);
+  transition: transform 0.35s ease 0.1s;
+}
+
+.offer-card:hover .offer-overlay p {
+  transform: translateY(0);
+}
+
+/* Reduced motion: disable overlay content translate */
+body.acc-reduce-motion .offer-overlay h3,
+body.acc-reduce-motion .offer-overlay p {
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 768px) {
+  .offer-card {
+    height: 220px;
+  }
+}
+/* ══ END OFFER CARDS ══ */
+
+/* ══════════════════════════════════════════
+   SLIDESHOW
+   ══════════════════════════════════════════ */
+.slideshow-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 2.5rem 0;
+  background: #000;
+}
+
+.slideshow-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(43, 114, 190, 0.8);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.slide-btn:hover    { background: #2B72BE; }
+.slide-btn--prev    { left: 12px; }
+.slide-btn--next    { right: 12px; }
+
+.slide-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.slide-dot.active { background: #fff; }
+
+@media (max-width: 768px) {
+  .slide img { height: 220px; }
+}
+/* ══ END SLIDESHOW ══ */
+
+
+/* ══════════════════════════════════════════
+   TASTER SESSION FORM
+   ══════════════════════════════════════════ */
+.taster-section {
+  background: #f5f5f5;
+  border-top: 3px solid #2B72BE;
+}
+
+.taster-intro {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* Form layout */
+#tasterForm {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #222;
+  background: #fff;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2B72BE;
+  box-shadow: 0 0 0 3px rgba(43, 114, 190, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Validation states */
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-color: #d9534f;
+}
+
+.form-group.is-valid input,
+.form-group.is-valid select,
+.form-group.is-valid textarea {
+  border-color: #3a9e5f;
+}
+
+.field-error {
+  font-size: 12px;
+  color: #d9534f;
+  min-height: 16px;
+  display: block;
+}
+
+/* Submit button */
+.taster-submit-btn {
+  align-self: flex-start;
+  background: #2B72BE;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.taster-submit-btn:hover {
+  background: #1f5a9e;
+}
+
+/* ── Confirmation panel ── */
+#tasterConfirmation {
+  max-width: 560px;
+  margin-top: 2rem;
+  background: #fff;
+  border: 2px solid #3a9e5f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+#tasterConfirmation.confirm-visible {
+  animation: confirmReveal 0.5s ease forwards;
+}
+
+@keyframes confirmReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered list-item reveal */
+.confirm-list li {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.confirm-list li.confirm-item-visible {
+  animation: confirmItemReveal 0.35s ease forwards;
+}
+
+@keyframes confirmItemReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Reduced motion: skip all confirmation animations */
+body.acc-reduce-motion #tasterConfirmation,
+body.acc-reduce-motion #tasterConfirmation.confirm-visible {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+body.acc-reduce-motion .confirm-list li,
+body.acc-reduce-motion .confirm-list li.confirm-item-visible {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.confirm-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-tick {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #3a9e5f;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.confirm-header h3 {
+  font-size: 18px;
+  color: #3a9e5f;
+  margin: 0;
+}
+
+.confirm-sub {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.confirm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.confirm-list li {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  gap: 8px;
+}
+
+.confirm-list li strong {
+  color: #2B72BE;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .taster-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .confirm-list li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .confirm-list li strong {
+    min-width: unset;
+  }
+}
+/* ══ END TASTER SESSION FORM ══ */
