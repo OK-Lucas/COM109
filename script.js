@@ -107,8 +107,6 @@ $(document).ready(function () {
 });
 
 // ==================== END STAFF.HTML ====================
-
-
 // ==================== HOME.HTML ====================
 
 // ----- Slideshow -----
@@ -156,6 +154,198 @@ $(document).ready(function () {
 
   startAuto();
 })();
+
+// ----- Workout Quiz -----
+$(document).ready(function () {
+
+  if (!$('#quizForm').length) return;
+
+  function reduceMotion() {
+    return $('body').hasClass('acc-reduce-motion');
+  }
+
+  function setError($group, $err, msg) {
+    $group.addClass('has-error').removeClass('is-valid');
+    $err.text(msg);
+  }
+
+  function setValid($group, $err) {
+    $group.removeClass('has-error').addClass('is-valid');
+    $err.text('');
+  }
+
+  function validateField(id) {
+    var $group = $('#fg-' + id);
+    var $err   = $('#err-' + id);
+    var val    = $('#quiz-' + id.charAt(0).toUpperCase() + id.slice(1)).val() ||
+                 $('#quiz' + id.charAt(0).toUpperCase() + id.slice(1)).val();
+
+    // Use the correct select ID directly
+    val = $('#quizGoal, #quizIntensity, #quizPreference').filter('[id="quiz' + id.charAt(0).toUpperCase() + id.slice(1) + '"]').val();
+
+    if (!val) {
+      setError($group, $err, 'Please make a selection.');
+      return false;
+    }
+    setValid($group, $err);
+    return true;
+  }
+
+  function getRecommendation(goal, intensity, preference) {
+    // Build a recommendation based on the three selections
+    if (goal === 'improve-flexibility' || (goal === 'general-fitness' && intensity === 'low')) {
+      if (preference === 'calm') {
+        return {
+          name: 'Yoga',
+          reason: 'Yoga is perfect for improving flexibility in a calm, focused environment. It builds body awareness and promotes relaxation alongside physical progress.'
+        };
+      }
+      return {
+        name: 'Pilates',
+        reason: 'Pilates will help you build flexibility and core strength at a measured pace, ideal for your goal and preference.'
+      };
+    }
+
+    if (goal === 'build-strength') {
+      if (preference === 'solo' || intensity === 'high') {
+        return {
+          name: 'Personal Training',
+          reason: 'One-on-one Personal Training gives you focused, expert coaching to build strength safely and efficiently at a high intensity tailored to you.'
+        };
+      }
+      return {
+        name: 'Strength Training',
+        reason: 'Our Strength Training classes are designed to build muscle and power in a structured group setting — a great match for your goal.'
+      };
+    }
+
+    if (goal === 'boost-endurance' || (goal === 'lose-weight' && intensity === 'high')) {
+      if (preference === 'fast' || preference === 'group') {
+        return {
+          name: 'HIIT',
+          reason: 'HIIT (High-Intensity Interval Training) is the most effective way to boost endurance and burn calories fast in an energetic group environment.'
+        };
+      }
+      return {
+        name: 'Cardio',
+        reason: 'Our Cardio classes will steadily build your endurance and support weight loss at a pace that suits your preference.'
+      };
+    }
+
+    if (goal === 'lose-weight' && intensity !== 'high') {
+      return {
+        name: 'Cardio',
+        reason: 'Cardio is a reliable and enjoyable way to lose weight at a manageable intensity, keeping you consistent and motivated.'
+      };
+    }
+
+    if (preference === 'solo') {
+      return {
+        name: 'Personal Training',
+        reason: 'Personal Training gives you a fully tailored programme, one-on-one with an expert coach — ideal for your solo training preference.'
+      };
+    }
+
+    // Default
+    return {
+      name: 'HIIT',
+      reason: 'HIIT is a versatile, high-energy class that supports a wide range of fitness goals and works well for most training preferences.'
+    };
+  }
+
+  // Live validation on change
+  $('#quizGoal').on('change', function () {
+    var val = $(this).val();
+    var $group = $('#fg-goal');
+    var $err   = $('#err-goal');
+    if (!val) { setError($group, $err, 'Please make a selection.'); }
+    else       { setValid($group, $err); }
+  });
+
+  $('#quizIntensity').on('change', function () {
+    var val = $(this).val();
+    var $group = $('#fg-intensity');
+    var $err   = $('#err-intensity');
+    if (!val) { setError($group, $err, 'Please make a selection.'); }
+    else       { setValid($group, $err); }
+  });
+
+  $('#quizPreference').on('change', function () {
+    var val = $(this).val();
+    var $group = $('#fg-preference');
+    var $err   = $('#err-preference');
+    if (!val) { setError($group, $err, 'Please make a selection.'); }
+    else       { setValid($group, $err); }
+  });
+
+  // Submit
+  $('#quizForm').on('submit', function (e) {
+    e.preventDefault();
+
+    var goal       = $('#quizGoal').val();
+    var intensity  = $('#quizIntensity').val();
+    var preference = $('#quizPreference').val();
+
+    var goalOk = true, intensityOk = true, preferenceOk = true;
+
+    if (!goal) {
+      setError($('#fg-goal'), $('#err-goal'), 'Please make a selection.');
+      goalOk = false;
+    }
+    if (!intensity) {
+      setError($('#fg-intensity'), $('#err-intensity'), 'Please make a selection.');
+      intensityOk = false;
+    }
+    if (!preference) {
+      setError($('#fg-preference'), $('#err-preference'), 'Please make a selection.');
+      preferenceOk = false;
+    }
+
+    if (!goalOk || !intensityOk || !preferenceOk) {
+      $('#quizForm .has-error select').first().focus();
+      return;
+    }
+
+    // Get readable labels from selected option text
+    var goalLabel       = $('#quizGoal option:selected').text();
+    var intensityLabel  = $('#quizIntensity option:selected').text();
+    var preferenceLabel = $('#quizPreference option:selected').text();
+
+    var result = getRecommendation(goal, intensity, preference);
+
+    // Populate result panel
+    $('#resultTitle').text('We recommend: ' + result.name);
+    $('#resultExplanation').text(result.reason);
+
+    var $summary = $('#resultSummary').empty();
+    var choices = [
+      { label: 'Primary Goal',        value: goalLabel },
+      { label: 'Preferred Intensity', value: intensityLabel },
+      { label: 'Training Preference', value: preferenceLabel }
+    ];
+    choices.forEach(function (item) {
+      var $li = $('<li>');
+      $('<strong>').text(item.label + ':').appendTo($li);
+      $('<span>').text(' ' + item.value).appendTo($li);
+      $summary.append($li);
+    });
+
+    // Reveal result panel
+    var $panel = $('#quizResult');
+    $panel.css('display', 'block');
+
+    if (reduceMotion()) {
+      $panel.css({ opacity: 1, transform: 'none' });
+    } else {
+      $panel.addClass('result-visible');
+    }
+
+    $('html, body').animate({
+      scrollTop: $panel.offset().top - 40
+    }, 350);
+  });
+
+});
 
 // ==================== END HOME.HTML ====================
 
