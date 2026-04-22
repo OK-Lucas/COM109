@@ -15,10 +15,10 @@
       <img src="images/GLOBAL_logo.png" alt="Pulse Studio logo">
     </div>
     <ul class="nav-links">
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="Staff.html">Meet the Team!</a></li>
-      <li><a href="Classes.html">Classes</a></li>
-      <li><a href="SignUp.html">Sign up!</a></li>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="staff.html">Meet the Team!</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="index.html">Sign up!</a></li>
     </ul>
   </nav>
 
@@ -75,6 +75,65 @@
     <div class="main-info">
       <h2>About Pulse Studio</h2>
       <p>Pulse Studio has been part of this community since 2018. Our certified coaches bring years of experience across strength training, cardio, mobility, and mental wellness. We believe fitness should be accessible, inclusive, and above all — enjoyable. Join hundreds of members already transforming their lives.</p>
+    </div>
+
+  </section>
+
+  <!-- Find Your Perfect Workout -->
+  <section class="main-section quiz-section">
+    <h2>Find Your Perfect Workout</h2>
+    <p class="quiz-intro">Answer three quick questions and we'll recommend the best class or service for you.</p>
+
+    <form id="quizForm" novalidate>
+
+      <div class="form-group" id="fg-goal">
+        <label for="quizGoal">What is your primary goal?</label>
+        <select id="quizGoal" name="quizGoal">
+          <option value="">-- Select a goal --</option>
+          <option value="lose-weight">Lose weight</option>
+          <option value="build-strength">Build strength</option>
+          <option value="improve-flexibility">Improve flexibility</option>
+          <option value="boost-endurance">Boost endurance</option>
+          <option value="general-fitness">General fitness</option>
+        </select>
+        <span class="field-error" id="err-goal" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group" id="fg-intensity">
+        <label for="quizIntensity">What is your preferred intensity?</label>
+        <select id="quizIntensity" name="quizIntensity">
+          <option value="">-- Select intensity --</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <span class="field-error" id="err-intensity" aria-live="polite"></span>
+      </div>
+
+      <div class="form-group" id="fg-preference">
+        <label for="quizPreference">What is your training preference?</label>
+        <select id="quizPreference" name="quizPreference">
+          <option value="">-- Select preference --</option>
+          <option value="solo">Solo coaching</option>
+          <option value="group">Group environment</option>
+          <option value="calm">Calm and focused</option>
+          <option value="fast">Fast-paced and energetic</option>
+        </select>
+        <span class="field-error" id="err-preference" aria-live="polite"></span>
+      </div>
+
+      <button type="submit" class="quiz-submit-btn">Get My Recommendation</button>
+
+    </form>
+
+    <!-- Result panel — hidden until valid submission -->
+    <div id="quizResult" style="display:none;" aria-live="polite">
+      <div class="result-header">
+        <span class="result-icon">&#127919;</span>
+        <h3 id="resultTitle"></h3>
+      </div>
+      <p id="resultExplanation" class="result-explanation"></p>
+      <ul class="result-summary" id="resultSummary"></ul>
     </div>
 
   </section>
