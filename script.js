@@ -1,8 +1,3 @@
-// ============================================================
-//  script.js  —  Pulse Studio
-// ============================================================
-
-
 // ==================== GLOBAL ====================
 
 // ----- Active Nav Link -----
@@ -172,49 +167,49 @@ var TIMETABLE = [
   {
     day: "Monday",
     classes: [
-      { time: "09:20 - 09:40", name: "Push Ups" },
-      { time: "09:40 - 10:00", name: "Med Ball Slam" },
-      { time: "10:00 - 10:20", name: "Kneeling DB Press" }
+      { time: "09:20 – 09:40", name: "Strengthen - Lucas" },
+      { time: "09:40 – 10:00", name: "Endurance- Aodhan" },
+      { time: "10:00 – 10:20", name: "Performance - Lucas" }
     ]
   },
   {
     day: "Tuesday",
     classes: [
-      { time: "09:00 - 09:25", name: "CMJ" },
-      { time: "09:25 - 09:50", name: "Band Assisted Pogos" },
-      { time: "09:45 - 10:05", name: "Barbell Bench Press" }
+      { time: "09:00 – 09:25", name: "Recovery - Kaden" },
+      { time: "09:25 – 09:50", name: "Yoga - Kaden" },
+      { time: "09:45 – 10:05", name: "Pilates- Kaden" }
     ]
   },
   {
     day: "Wednesday",
     classes: [
-      { time: "09:00 - 09:30", name: "Copenhagen" },
-      { time: "09:30 - 10:00", name: "Wall Sit" },
-      { time: "10:00 - 10:15", name: "Paloff Press" },
-      { time: "10:15 - 10:30", name: "Plank" }
+      { time: "09:00 – 09:30", name: "Dumbbell - Lucas" },
+      { time: "09:30 – 10:00", name: "Circuit training - Lucas" },
+      { time: "10:00 – 10:15", name: "Weight Lifting - Lucas" },
+      { time: "10:15 – 10:30", name: "Foundation Classes - Lucas" }
     ]
   },
   {
     day: "Thursday",
     classes: [
-      { time: "09:00 - 09:20", name: "Hanging Leg Raise" },
-      { time: "09:20 - 09:40", name: "Hexbar Deadlift" },
-      { time: "09:40 - 10:00", name: "Hang Clean" }
+      { time: "09:00 – 09:20", name: "Hydrox- Aodhan" },
+      { time: "09:20 – 09:40", name: "Physio- Kaden" },
+      { time: "09:40 – 10:00", name: "Bikes - Aodhan" }
     ]
   },
   {
     day: "Friday",
     classes: [
-      { time: "09:00 - 09:30", name: "Bikes" },
-      { time: "09:30 - 10:00", name: "Broad Jumps" },
-      { time: "10:00 - 10:30", name: "Lateral Rebound from Plate" }
+      { time: "09:00 – 09:30", name: "Weights- Lucas" },
+      { time: "09:30 – 10:00", name: "Deadlifts - Lucas" },
+      { time: "10:00 – 10:30", name: "Lunges- Lucas" }
     ]
   },
   {
     day: "Saturday",
     classes: [
-      { time: "09:00 - 09:40", name: "Hamstring Curls" },
-      { time: "09:40 - 10:10", name: "Rockback Jumps" }
+      { time: "09:00 – 09:40", name: "Band Resistances- Kaden" },
+      { time: "09:40 – 10:10", name: "Pushups- Aodhan" }
     ]
   },
   {
